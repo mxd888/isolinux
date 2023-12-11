@@ -1,0 +1,20 @@
+
+//Download (please use the latest version. recommend: syslinux-6.03)
+https://wiki.syslinux.org/wiki/index.php?title=Download
+https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/
+
+
+// ISOLINUX
+https://wiki.syslinux.org/wiki/index.php?title=ISOLINUX
+
+// Isolinux.cfg
+https://wiki.syslinux.org/wiki/index.php?title=Isolinux.cfg
+
+// make iso
+mkisofs -o mios.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table CD_root
+
+// run iso
+qemu-system-x86_64 -nographic -cdrom mios.iso
+
+// mount iso
+mount -o loop mios.iso /mnt/iso
